@@ -1,19 +1,19 @@
-import React from 'react';
 import './App.css';
 
 import { Authenticator } from '@aws-amplify/ui-react';
 import '@aws-amplify/ui-react/styles.css';
+import SiDocument from 'components/molecules/SiDocument';
+import Homes from 'pages/Homes';
 
 function App() {
   return (
-    <Authenticator>
+    <Authenticator hideSignUp>
       {({ signOut, user }) => (
-        <div className="App">
-          <p>
-            Hey {user.username}, welcome to my channel, with auth!
-          </p>
-          <button onClick={signOut}>Sign out</button>
-        </div>
+        <SiDocument>
+          <Homes />
+          <button onClick={signOut}>signOut</button>
+        </SiDocument>
+        
       )}
     </Authenticator>
   );
